@@ -1,0 +1,26 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+        -fx-background-color: linear-gradient(#71a2b1, #3A5058);
+
+}
+.Label{
+        -fx-background-color: 
+            -fx-shadow-highlight-color, 
+            -fx-outer-border, 
+            -fx-inner-border, 
+            -fx-body-color;
+        -fx-alignment: center;
+        -fx-text-fill: white;
+    }
+.button {
+  -fx-background-color: 
+       -fx-shadow-highlight-color, 
+       -fx-outer-border, 
+       -fx-inner-border, 
+       -fx-body-color;
+  -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+  -fx-background-radius: 3px, 3px, 2px, 1px;
+}

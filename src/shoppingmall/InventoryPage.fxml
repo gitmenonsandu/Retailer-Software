@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.InventoryPageController">
+  <stylesheets>
+        <URL value="@loginpage.css" />
+    </stylesheets>
+    <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1433.0" minWidth="10.0" prefWidth="946.0" />
+      <ColumnConstraints maxWidth="487.0" minWidth="0.0" prefWidth="487.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="39.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="275.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="755.0" minHeight="10.0" prefHeight="755.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="304.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label fx:id="shopName" text="shopName" GridPane.halignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="23.0" />
+         </font></Label>
+      <Label fx:id="totalProducts" text="totalproducts" GridPane.rowIndex="1">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <TextField fx:id="search" onKeyReleased="#displaySearch" prefHeight="25.0" prefWidth="1528.0" promptText="Enter search string" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      <Button fx:id="back" mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.halignment="RIGHT" />
+      <TilePane fx:id="tile" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" GridPane.rowSpan="2147483647" />
+      <Button fx:id="addItem" mnemonicParsing="false" onAction="#goToAdding" prefHeight="25.0" prefWidth="331.0" text="Add Item" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+   </children>
+</GridPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.LoginPageController">
+    <stylesheets>
+        <URL value="@loginpage.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="shopName" alignment="CENTER" contentDisplay="CENTER" layoutX="189.0" layoutY="121.0" prefHeight="36.0" prefWidth="260.0" text="&lt;ShopName&gt;" textAlignment="CENTER" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="189.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="121.0">
+         <font>
+            <Font name="System Bold Italic" size="30.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="pswd" alignment="CENTER" layoutX="220.0" layoutY="188.0" onKeyReleased="#login" promptText="Enter Password" />
+      <Label fx:id="verify" alignment="CENTER" contentDisplay="CENTER" layoutX="288.0" layoutY="229.0" />
+      <Button fx:id="exit" layoutX="557.0" layoutY="374.0" mnemonicParsing="false" onAction="#closeProgram" text="Exit" textFill="#171616" />
+   </children>
+</AnchorPane>

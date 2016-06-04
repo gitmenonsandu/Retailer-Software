@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.AddOfferPageController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="125.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="267.0" minHeight="5.0" prefHeight="29.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="274.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="308.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="252.0" minHeight="10.0" prefHeight="248.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Button fx:id="back" mnemonicParsing="false" onAction="#handleButtonAction" text="back" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+      <Label text="Category" GridPane.rowIndex="1" />
+      <Label text="Description" GridPane.rowIndex="2" />
+      <Button fx:id="uploadImage" mnemonicParsing="false" onAction="#handleButtonAction" text="Upload Image" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+      <ImageView fx:id="offerImage" fitHeight="189.0" fitWidth="245.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+      <ComboBox fx:id="category" prefHeight="25.0" prefWidth="294.0" promptText="Choose Category" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button fx:id="addOffer" mnemonicParsing="false" onAction="#handleButtonAction" text="Add Offer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      <TextField fx:id="desc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="offerDir" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   </children>
+</GridPane>

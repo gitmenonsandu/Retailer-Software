@@ -1,0 +1,20 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+.mainFxmlClass {
+    -fx-background-color: linear-gradient(lightgray,lightblue);
+
+}
+
+#print{
+    -fx-background-color: darkslateblue;
+    -fx-text-fill: lightyellow;
+    
+    
+}
+
+.tileClass{
+    -fx-background-color: beige;
+}

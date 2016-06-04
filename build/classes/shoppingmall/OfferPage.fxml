@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.OfferPageController">
+  <stylesheets>
+        <URL value="@offerspage.css" />
+    </stylesheets> 
+    <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="357.0" minWidth="10.0" prefWidth="114.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1689.0" minWidth="10.0" prefWidth="1646.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="356.0" minWidth="0.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="228.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="641.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="943.0" minHeight="10.0" prefHeight="943.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="75.0" minHeight="8.0" prefHeight="22.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647">
+         <children>
+            <Label layoutX="14.0" layoutY="19.0" text="revolucian" textFill="#f5efef">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label fx:id="shopName" layoutX="927.0" layoutY="12.0" text="shopName" textFill="#e4dddd">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font></Label>
+            <Button layoutX="1639.0" layoutY="18.0" mnemonicParsing="false" text="noti" />
+            <Button layoutX="1701.0" layoutY="18.0" mnemonicParsing="false" text="settings" />
+            <Button fx:id="back" layoutX="1773.0" layoutY="16.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="totalOffers" text="offerCount" textFill="#f5f3f3" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Button fx:id="add" mnemonicParsing="false" onAction="#goToAdding" text="Add Offer" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      <TilePane fx:id="tile" prefHeight="943.0" prefWidth="1610.0" styleClass="tileClass" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   </children>
+</GridPane>
