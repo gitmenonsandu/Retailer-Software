@@ -14,8 +14,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.HomePageController">
-  <columnConstraints>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.HomePageController">
+  <stylesheets>
+      <URL value="@homepage.css" />
+  </stylesheets>
+    <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="954.0" minWidth="10.0" prefWidth="950.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="979.0" minWidth="10.0" prefWidth="970.0" />
   </columnConstraints>
@@ -31,22 +34,34 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Button fx:id="billing" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="200.0" prefWidth="320.0" text="Billing" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button fx:id="billing" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="215.0" prefWidth="927.0" text="Billing" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
-            <Insets left="200.0" />
-         </GridPane.margin></Button>
-      <Button fx:id="inventory" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="200.0" prefWidth="320.0" text="Inventory" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Insets />
+         </GridPane.margin>
+         <font>
+            <Font size="52.0" />
+         </font></Button>
+      <Button fx:id="inventory" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="212.0" prefWidth="941.0" text="Inventory" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
-            <Insets right="200.0" />
-         </GridPane.margin></Button>
-      <Button fx:id="adv" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="200.0" prefWidth="320.0" text="Advertisement" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Insets />
+         </GridPane.margin>
+         <font>
+            <Font size="52.0" />
+         </font></Button>
+      <Button fx:id="adv" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="208.0" prefWidth="924.0" text="Advertisement" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <GridPane.margin>
-            <Insets left="200.0" />
-         </GridPane.margin></Button>
-      <Button fx:id="offers" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="200.0" prefWidth="320.0" text="Offers" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Insets />
+         </GridPane.margin>
+         <font>
+            <Font size="52.0" />
+         </font></Button>
+      <Button fx:id="offers" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="209.0" prefWidth="945.0" text="Offers" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <GridPane.margin>
-            <Insets right="200.0" />
-         </GridPane.margin></Button>
+            <Insets />
+         </GridPane.margin>
+         <font>
+            <Font size="52.0" />
+         </font></Button>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="2" GridPane.rowIndex="4">
         <tabs>
           <Tab fx:id="tab1" onSelectionChanged="#handleTabs" text="Pie Chart">
