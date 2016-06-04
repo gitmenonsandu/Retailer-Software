@@ -34,6 +34,7 @@ public class LoginPageController implements Initializable {
      */
     @FXML
     private Label shopName;
+    
    
     @FXML
     private PasswordField pswd;
