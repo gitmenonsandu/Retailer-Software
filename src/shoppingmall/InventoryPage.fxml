@@ -14,7 +14,8 @@
         <URL value="@loginpage.css" />
     </stylesheets>
     <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1433.0" minWidth="10.0" prefWidth="946.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1433.0" minWidth="10.0" prefWidth="351.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1433.0" minWidth="10.0" prefWidth="1235.0" />
       <ColumnConstraints maxWidth="487.0" minWidth="0.0" prefWidth="487.0" />
   </columnConstraints>
   <rowConstraints>
@@ -25,17 +26,24 @@
       <RowConstraints maxHeight="304.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label fx:id="shopName" text="shopName" GridPane.halignment="CENTER">
+      <Label fx:id="shopName" text="shopName" GridPane.columnIndex="1" GridPane.halignment="CENTER">
          <font>
             <Font name="System Bold Italic" size="23.0" />
          </font></Label>
-      <Label fx:id="totalProducts" text="totalproducts" GridPane.rowIndex="1">
+      <Label fx:id="totalProducts" text="totalproducts" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <TextField fx:id="search" onKeyReleased="#displaySearch" prefHeight="25.0" prefWidth="1528.0" promptText="Enter search string" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-      <Button fx:id="back" mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.halignment="RIGHT" />
-      <TilePane fx:id="tile" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" GridPane.rowSpan="2147483647" />
-      <Button fx:id="addItem" mnemonicParsing="false" onAction="#goToAdding" prefHeight="25.0" prefWidth="331.0" text="Add Item" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      <TextField fx:id="search" onKeyReleased="#displaySearch" prefHeight="25.0" prefWidth="1528.0" promptText="Enter search string" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      <Button fx:id="back" mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin></Button>
+      <TilePane fx:id="tile" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.rowSpan="2147483647">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></TilePane>
+      <Button fx:id="addItem" mnemonicParsing="false" onAction="#goToAdding" prefHeight="25.0" prefWidth="331.0" text="Add Item" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      <TreeView prefHeight="200.0" prefWidth="200.0" styleClass="categoryClass" GridPane.rowIndex="3" GridPane.rowSpan="2" />
    </children>
 </GridPane>

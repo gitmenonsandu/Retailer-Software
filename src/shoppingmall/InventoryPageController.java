@@ -127,9 +127,12 @@ public class InventoryPageController implements Initializable {
             Label itemName=new Label();
             Label itemPrice=new Label();
             Label itemQuantity=new Label();
-            
+            itemTile.setStyle("-fx-border-width:2px;-fx-border-color:black;-fx-padding:5");
+
             name=(String)data.get(i).get(2);
+            name+="\\-";
             itemPrice.setText(name);
+            
             itemPrice.setScaleX(1.3);
             itemPrice.setScaleY(1.3);
             name=(String)data.get(i).get(3);
