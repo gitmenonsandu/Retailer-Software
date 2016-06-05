@@ -21,7 +21,7 @@ public class ShoppingMall extends Application {
     public void start(Stage stage) throws Exception {
         Parent root=null;
      
-        root = FXMLLoader.load(getClass().getResource("BillingPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("InventoryPage.fxml"));
         
         
         Scene scene = new Scene(root);

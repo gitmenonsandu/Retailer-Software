@@ -80,7 +80,10 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Button>
-      <Button fx:id="back" mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+      <Button fx:id="back" mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin></Button>
       <TextField fx:id="search" onKeyReleased="#displaySearch" promptText="Enter Item name" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
       <ScrollPane prefViewportHeight="828.0" prefViewportWidth="818.0" styleClass="tileClass" GridPane.rowIndex="2">
          <content>

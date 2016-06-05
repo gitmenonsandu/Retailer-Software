@@ -95,6 +95,7 @@ public class BillingPageController implements Initializable {
         Parent homePageParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
             Scene homePageScene = new Scene(homePageParent);
             Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            appStage.setMaximized(true);
             appStage.setScene(homePageScene);
             appStage.show();
     }
@@ -141,8 +142,7 @@ public class BillingPageController implements Initializable {
     public void tileDisplay(ObservableList<ObservableList> data){
         ImageView page = new ImageView();
         
-        tile.setMaxWidth(600);
-        tile.setMaxHeight(1000);
+
         String name;
         
         try{
@@ -150,6 +150,7 @@ public class BillingPageController implements Initializable {
             VBox itemTile=new VBox();       //tile to display inventory items
             Label itemName=new Label();
             Label itemPrice=new Label();
+            itemTile.setStyle("-fx-border-width:2px;-fx-border-color:black;-fx-padding:5");
    
             name=(String)data.get(i).get(2);    //retrieving item price
             itemPrice.setText(name);
