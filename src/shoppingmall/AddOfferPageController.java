@@ -90,6 +90,10 @@ public class AddOfferPageController implements Initializable {
                 offer.setOfferDesc(desc.getText());
                 offer.setOfferCategory((String) category.getValue());
                 offer.setOfferUses(0);
+                if(offerDir.getText()==null)
+                    offer.setImage("doofer");
+                else
+                    offer.setImage(offerDir.getText());
                 
            }
            catch(Exception e){

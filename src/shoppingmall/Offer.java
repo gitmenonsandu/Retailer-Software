@@ -12,19 +12,28 @@ import java.sql.Date;
  * @author sandukuttan
  */
 public class Offer {
-    private String offerID, offerDesc,offerCategory;
+    private String offerID, offerDesc,offerCategory,image;
     private Integer offerUses;
     private Date offerExpiry;
 
-    public Offer(String offerID, String offerDesc, String offerCategory, Integer offerUses) {
+    public Offer(String offerID, String offerDesc, String offerCategory, Integer offerUses,String image) {
         this.offerID = offerID;
         this.offerDesc = offerDesc;
         this.offerCategory = offerCategory;
         this.offerUses = offerUses;
+        this.image=image;
     }
 
     Offer() {
         
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getOfferCategory() {

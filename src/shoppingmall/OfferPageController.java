@@ -101,9 +101,14 @@ public class OfferPageController implements Initializable {
             name+=(String) data.get(i).get(3);
             
             offerUses.setText(name);
+            
+            name=(String) data.get(i).get(5);
+            
+            if(name==null)
+                name="doofer";
             //System.out.println(name);
             if(true){
-                page= new ImageView(new Image(ShoppingMall.class.getResourceAsStream("img/doofer")));
+                page= new ImageView(new Image(ShoppingMall.class.getResourceAsStream("img/"+name)));
                 page.setFitHeight(200);
                 page.setFitWidth(300);
                 page.setId((String) data.get(i).get(1));
@@ -135,7 +140,7 @@ public class OfferPageController implements Initializable {
         
         shopName.setText(user.getShopName());
         String noOfOffers="Total Offers : ";
-        String offerID,offerDesc,offerCategory;
+        String offerID,offerDesc,offerCategory,offerImage;
         tile.setVgap(10);
         tile.setHgap(10);
         Integer offerUsers;
@@ -153,13 +158,13 @@ public class OfferPageController implements Initializable {
             offerDesc=((String) SqlLogin.data.get(i).get(1));
                        
             
-            
             offerUsers=(Integer.parseInt((String) SqlLogin.data.get(i).get(3)));
                
             offerCategory=((String) SqlLogin.data.get(i).get(4));
             
+            offerImage=((String) SqlLogin.data.get(i).get(5));
                 
-            Offer offer=new Offer(offerID, offerDesc, offerCategory, offerUsers);
+            Offer offer=new Offer(offerID, offerDesc, offerCategory, offerUsers,offerImage);
             OfferTable.addOffer(offer);
         }
         //System.out.println(inventory.viewAllItems());

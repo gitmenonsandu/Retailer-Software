@@ -25,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -59,6 +60,9 @@ public class InventoryPageController implements Initializable {
     
     @FXML
     private Button back;
+    
+    @FXML
+    private ListView filter;
     
     @FXML
     protected void goBack(ActionEvent event) throws IOException{
@@ -206,6 +210,8 @@ public class InventoryPageController implements Initializable {
         noOfProducts+=(SqlLogin.data.size());
         totalProducts.setText(noOfProducts);
        tileDisplay(SqlLogin.data);
+       
+       
     }        
     
 }
