@@ -25,6 +25,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -68,6 +70,45 @@ public class HomePageController implements Initializable {
     
     @FXML
     Button adv;
+    
+    @FXML
+    protected void handleKeyPress(KeyEvent event) throws IOException{
+        switch (event.getCode()) {
+            case B:
+                {
+                    Parent billPageParent = FXMLLoader.load(getClass().getResource("BillingPage.fxml"));
+                    Scene billPageScene = new Scene(billPageParent);
+                    Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                    appStage.setScene(billPageScene);
+                    appStage.show();
+                    break;
+                }
+            case I:
+                {
+                    Parent invPageParent = FXMLLoader.load(getClass().getResource("InventoryPage.fxml"));
+                    Scene invPageScene = new Scene(invPageParent);
+                    Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                    appStage.setScene(invPageScene);
+                    appStage.show();
+                    break;
+                }
+            case O:
+                {
+                    Parent offerPageParent = FXMLLoader.load(getClass().getResource("OfferPage.fxml"));
+                    Scene offerPageScene = new Scene(offerPageParent);
+                    Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                    appStage.setScene(offerPageScene);
+                    appStage.show();
+                    break;
+                }
+            case A:
+                System.out.println("Go to adv page");
+                break;
+            default:
+                break;
+        }
+        
+    }
     
     @FXML
     protected void handleButtonAction(ActionEvent event) throws IOException{

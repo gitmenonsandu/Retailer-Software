@@ -33,7 +33,7 @@
       <TextField fx:id="quantity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <TextField fx:id="category" GridPane.columnIndex="1" GridPane.rowIndex="4" />
       <Button fx:id="addToInventory" mnemonicParsing="false" onAction="#handleButtonAction" text="Add to Inventory" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-      <Button fx:id="back" mnemonicParsing="false" onAction="#handleButtonAction" onKeyPressed="#BackSpace" text="Back" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+      <Button fx:id="back" mnemonicParsing="false" onAction="#handleButtonAction" text="Back" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
       <CheckBox fx:id="isDiscount" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleButtonAction" text="Discount" GridPane.halignment="LEFT" GridPane.rowIndex="5" />
       <TextField fx:id="discount" GridPane.columnIndex="1" GridPane.rowIndex="5" />
       <Button fx:id="upload" mnemonicParsing="false" onAction="#handleButtonAction" text="Upload Image" GridPane.halignment="CENTER" GridPane.rowIndex="6" />

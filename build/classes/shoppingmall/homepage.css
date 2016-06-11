@@ -7,4 +7,5 @@
 }
 .button{
     -fx-background-color: linear-gradient(lightyellow,darkorange);
+    -fx-text-fill: white;
 }

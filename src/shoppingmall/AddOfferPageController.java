@@ -62,21 +62,21 @@ public class AddOfferPageController implements Initializable {
     private TextField offerDir;
     
     private void goBack(ActionEvent event) throws IOException{
-        Parent invPageParent = FXMLLoader.load(getClass().getResource("OfferPage.fxml"));
-            Scene invPageScene = new Scene(invPageParent);
+        Parent offerPageParent = FXMLLoader.load(getClass().getResource("OfferPage.fxml"));
+            Scene offerPageScene = new Scene(offerPageParent);
             Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            appStage.setScene(invPageScene);
+            appStage.setScene(offerPageScene);
             appStage.show();
     }
     
     @FXML
     private void BackSpace(KeyEvent event) throws IOException{
         if(event.getCode().equals(KeyCode.BACK_SPACE)){
-                Parent homePageParent = FXMLLoader.load(getClass().getResource("OfferPage.fxml"));
-                Scene homePageScene = new Scene(homePageParent);
+                Parent offerPageParent = FXMLLoader.load(getClass().getResource("OfferPage.fxml"));
+                Scene offerPageScene = new Scene(offerPageParent);
                 Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
                 appStage.setMaximized(true);
-                appStage.setScene(homePageScene);
+                appStage.setScene(offerPageScene);
                 appStage.show();
         }
     }
@@ -152,6 +152,7 @@ public class AddOfferPageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try{
+            back.setDefaultButton(true);
             offerDir.setEditable(false);
             category.getItems().clear();
             category.getItems().addAll("Combo","Discount");
