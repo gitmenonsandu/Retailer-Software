@@ -68,6 +68,7 @@ public class AddOfferPageController implements Initializable {
             appStage.setScene(invPageScene);
             appStage.show();
     }
+    
     @FXML
     private void BackSpace(KeyEvent event) throws IOException{
         if(event.getCode().equals(KeyCode.BACK_SPACE)){
