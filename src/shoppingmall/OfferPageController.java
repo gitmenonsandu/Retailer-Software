@@ -24,6 +24,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -61,6 +63,17 @@ public class OfferPageController implements Initializable {
             appStage.show();
     }
     
+    @FXML
+    protected void BackSpace(KeyEvent event) throws IOException{
+        if(event.getCode().equals(KeyCode.BACK_SPACE)){
+                Parent homePageParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+                Scene homePageScene = new Scene(homePageParent);
+                Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                appStage.setMaximized(true);
+                appStage.setScene(homePageScene);
+                appStage.show();
+        }
+    }
     @FXML
     protected void goToAdding(ActionEvent event) throws IOException{
             Parent offerPageParent = FXMLLoader.load(getClass().getResource("AddOfferPage.fxml"));

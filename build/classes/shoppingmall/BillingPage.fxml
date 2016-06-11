@@ -80,7 +80,7 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Button>
-      <Button fx:id="back" mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+      <Button fx:id="back" mnemonicParsing="false" onAction="#goBack" onKeyPressed="#BackSpace" text="Back" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin></Button>

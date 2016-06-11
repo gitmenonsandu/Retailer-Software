@@ -26,6 +26,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
@@ -67,6 +68,18 @@ public class AddOfferPageController implements Initializable {
             appStage.setScene(invPageScene);
             appStage.show();
     }
+    @FXML
+    private void BackSpace(KeyEvent event) throws IOException{
+        if(event.getCode().equals(KeyCode.BACK_SPACE)){
+                Parent homePageParent = FXMLLoader.load(getClass().getResource("OfferPage.fxml"));
+                Scene homePageScene = new Scene(homePageParent);
+                Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                appStage.setMaximized(true);
+                appStage.setScene(homePageScene);
+                appStage.show();
+        }
+    }
+    
     
     private void uploadOfferImage(ActionEvent event){
         FileChooser fc = new FileChooser();

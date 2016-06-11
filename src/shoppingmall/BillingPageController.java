@@ -35,6 +35,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -98,6 +100,18 @@ public class BillingPageController implements Initializable {
             appStage.setMaximized(true);
             appStage.setScene(homePageScene);
             appStage.show();
+    }
+    
+    @FXML
+    private void BackSpace(KeyEvent event) throws IOException{
+        if(event.getCode().equals(KeyCode.BACK_SPACE)){
+                Parent homePageParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+                Scene homePageScene = new Scene(homePageParent);
+                Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                appStage.setMaximized(true);
+                appStage.setScene(homePageScene);
+                appStage.show();
+        }
     }
     
     //function to search item by name
@@ -282,6 +296,7 @@ public class BillingPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         totalCost=subTotalCost=Float.parseFloat("0");
         billItem = new HashMap<>();
         cartIndex = new HashMap<>();
@@ -436,7 +451,8 @@ public class BillingPageController implements Initializable {
     
         
         tileDisplay(SqlLogin.data);
-        // TODO
+        
+        
     }    
     
 }
