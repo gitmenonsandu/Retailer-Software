@@ -61,10 +61,7 @@ public class HomePageController implements Initializable {
     @FXML
     Button inventory;
     
-    
-    
-    @FXML
-    Button review;
+
     
     @FXML
     Button logout;
@@ -107,10 +104,7 @@ public class HomePageController implements Initializable {
     
     @FXML
     protected void handleDrop(ActionEvent event) throws IOException{
-        if(event.getSource()==review){
-            System.out.println("Go to reviews page");
-        }
-        else if(event.getSource()==logout){
+        if(event.getSource()==logout){
             Parent loginPageParent = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
             Scene loginPageScene = new Scene(loginPageParent);
             Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();

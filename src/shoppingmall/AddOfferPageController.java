@@ -5,6 +5,7 @@
  */
 package shoppingmall;
 
+import com.sun.webkit.dom.KeyboardEventImpl;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -13,6 +14,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +26,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -69,7 +73,7 @@ public class AddOfferPageController implements Initializable {
         File selectedFile  = fc.showOpenDialog(null);
         fc.setTitle("Choose Offer Image");
        
-        fc.setInitialDirectory(new File(System.getProperty("user.dir")));
+        fc.setInitialDirectory(new File(System.getProperty("user.dir")+"/src/shoppingmall/img"));
         
        if(selectedFile!=null){
            String dir=selectedFile.getName();
@@ -87,10 +91,19 @@ public class AddOfferPageController implements Initializable {
         else if(event.getSource()==addOffer){
             Offer offer=new Offer();
            try{
+               if(desc.getText().isEmpty() || category.getValue() == null){
+                   if(desc.getText().isEmpty())
+                        desc.setStyle("-fx-background-color:red;");
+               
+                    if(category.getValue() == null)
+                         category.setStyle("-fx-background-color:red");
+                           
+                    throw null;
+                }
                 offer.setOfferDesc(desc.getText());
                 offer.setOfferCategory((String) category.getValue());
                 offer.setOfferUses(0);
-                if(offerDir.getText()==null)
+                if(offerDir.getText().isEmpty())
                     offer.setImage("doofer");
                 else
                     offer.setImage(offerDir.getText());
@@ -128,6 +141,20 @@ public class AddOfferPageController implements Initializable {
             offerDir.setEditable(false);
             category.getItems().clear();
             category.getItems().addAll("Combo","Discount");
+            category.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+                @Override
+                public void handle(MouseEvent event) {
+                    category.setStyle("-fx-background-color:gray");
+                }
+                
+            });
+            desc.addEventHandler(KeyEvent.ANY, new EventHandler<KeyEvent>(){
+                @Override
+                public void handle(KeyEvent event) {
+                    desc.setStyle("-fx-background-color:white");
+                }
+                
+            });
         }
         catch(Exception e){
             System.out.println(e);
