@@ -41,7 +41,14 @@ public class Inventory {
     }
     
     public static Item getItem(String id){
-        return itemList.get(id);
+        Item item=null;
+        try{
+            item= itemList.get(id);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return item;
     }
     
     public ArrayList<Item> viewAllItems(){
