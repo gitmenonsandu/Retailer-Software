@@ -355,14 +355,7 @@ public class BillingPageController implements Initializable {
                     else
                         colName="Remove";
                     TableColumn col=new TableColumn(colName);
-                    TableRow row = new TableRow();
-                    row.setOnMouseClicked(new EventHandler<MouseEvent>(){
-                        @Override
-                        public void handle(MouseEvent event) {
-                            System.out.println(event.getSource());
-                        }
-                        
-                    });
+
                     
                     if(i==3 || i==1)
                          col.setMinWidth(200);
