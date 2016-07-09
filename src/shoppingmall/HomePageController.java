@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -128,7 +130,7 @@ public class HomePageController implements Initializable {
                     
                     }
         else if(event.getSource()==inventory){
-            Parent invPageParent = FXMLLoader.load(getClass().getResource("InventoryPage.fxml"));
+            Parent invPageParent = FXMLLoader.load(getClass().getResource("InventoryHomePage.fxml"));
             Scene invPageScene = new Scene(invPageParent);
             Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(invPageScene);
@@ -195,6 +197,38 @@ public class HomePageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Login user=Login.getUser();
         shopName.setText(user.getShopName());
+        
+        String ItemID,ItemName,ItemCategory,ItemImage;
+        Float ItemPrice,ItemDiscount;
+        Integer ItemQuantity;
+        boolean ItemOfferAvailability;
+        try {
+            
+            SqlLogin.getTable("select * from ItemTable",null);
+        } catch (SQLException ex) {
+            Logger.getLogger(InventoryPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(int i=0;i<SqlLogin.data.size();++i){
+            
+            ItemID=((String) SqlLogin.data.get(i).get(0));
+                       
+            ItemName=((String) SqlLogin.data.get(i).get(1));
+                       
+            ItemPrice=(Float.valueOf((String) SqlLogin.data.get(i).get(2)));
+            
+            ItemQuantity=(Integer.parseInt((String) SqlLogin.data.get(i).get(3)));
+               
+            ItemCategory=((String) SqlLogin.data.get(i).get(4));
+            
+            ItemOfferAvailability=((Integer.valueOf((String) SqlLogin.data.get(i).get(5))==1));
+            
+            ItemImage=((String) SqlLogin.data.get(i).get(6));
+            
+            ItemDiscount=(Float.valueOf((String) SqlLogin.data.get(i).get(7)));
+                
+            Item item=new Item(ItemID, ItemName, ItemCategory, ItemImage, ItemPrice, ItemDiscount, ItemQuantity, ItemOfferAvailability);
+            Inventory.addItem(item);
+        }
     }    
     
     

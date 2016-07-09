@@ -21,9 +21,11 @@ public class Inventory {
     static Inventory inventory = new Inventory();
     
     static HashMap< String , Item> itemList;
-
+    static HashMap<String,String> categories;
+    
     private Inventory() {
         Inventory.itemList = new HashMap<>() ;
+        Inventory.categories = new HashMap<>() ;
     }
     
     public static Inventory getInventory(){
@@ -34,6 +36,7 @@ public class Inventory {
         //System.out.println(item.getItemID());
         try{
         itemList.putIfAbsent(item.getItemID(), item);
+        categories.putIfAbsent(item.getItemCategory(), item.getItemCategory());
         }
         catch(Exception e){
             //System.out.println(item);

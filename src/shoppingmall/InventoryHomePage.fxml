@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="1184.0" prefWidth="1159.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.InventoryHomePageController">
+    <stylesheets>
+        <URL value="@mallmain.css" />
+    </stylesheets>
+   <children>
+      <HBox prefHeight="129.0" prefWidth="1159.0">
+         <children>
+            <Button fx:id="dashboard" mnemonicParsing="false" prefHeight="129.0" prefWidth="233.0" text="Dashboard" />
+            <Button fx:id="invoice" mnemonicParsing="false" prefHeight="129.0" prefWidth="236.0" text="Invoice" />
+            <Button fx:id="ads" mnemonicParsing="false" prefHeight="129.0" prefWidth="243.0" text="Ads" />
+            <Button fx:id="offers" mnemonicParsing="false" prefHeight="129.0" prefWidth="233.0" text="Offers" />
+            <Button fx:id="inventory" mnemonicParsing="false" prefHeight="129.0" prefWidth="240.0" text="Inventory" />
+         </children>
+      </HBox>
+      <ScrollPane layoutY="129.0" prefHeight="821.0" prefWidth="1159.0">
+         <content>
+            <VBox fx:id="vbox" prefWidth="1138.0">
+               <children>
+                  <Pane>
+                     <children>
+                        <Pane prefHeight="70.0" prefWidth="1140.0" style="-fx-border-color: grey;">
+                           <children>
+                              <Button fx:id="addCategory" layoutX="91.0" layoutY="10.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="376.0" text="Add New Category" />
+                              <Button fx:id="addFolder" layoutX="628.0" layoutY="10.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="376.0" text="Add New Folder" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Pane>
+                     <children>
+                        <Pane prefHeight="350.0" prefWidth="1139.0" style="-fx-border-color: grey;">
+                           <children>
+                              <PieChart layoutX="90.0" layoutY="22.0" prefHeight="288.0" prefWidth="331.0" style="-fx-border-color: grey;" />
+                              <Label layoutX="220.0" layoutY="146.0" text="Pie Chart" />
+                              <Label layoutX="674.0" layoutY="147.0" text="Pie Chart" />
+                              <PieChart layoutX="540.0" layoutY="22.0" prefHeight="288.0" prefWidth="331.0" style="-fx-border-color: grey;" />
+                              <Button fx:id="prev" layoutX="18.0" layoutY="129.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="&lt;" />
+                              <Button fx:id="next" layoutX="923.0" layoutY="128.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="&gt;" />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
