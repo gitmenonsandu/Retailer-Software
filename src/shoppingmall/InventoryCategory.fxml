@@ -10,27 +10,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane fx:id="category1" prefHeight="580.0" prefWidth="970.0" style="-fx-border-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.InventoryCategoryController">
+<Pane prefHeight="580.0" prefWidth="970.0" style="-fx-border-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.InventoryCategoryController">
    <children>
-      <Label layoutX="20.0" layoutY="18.0" text="Shirts">
+      <Label fx:id="categoryName" layoutX="20.0" layoutY="18.0" text="Shirts">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
       <Separator layoutX="20.0" layoutY="58.0" prefHeight="11.0" prefWidth="924.0" />
-      <Button layoutX="897.0" layoutY="22.0" mnemonicParsing="false" text="Add" />
-      <PieChart layoutX="29.0" layoutY="108.0" prefHeight="279.0" prefWidth="341.0" style="-fx-border-color: grey;" />
+      <Button fx:id="addItem" layoutX="897.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleAdd" text="Add" />
+      <PieChart fx:id="pieChart" layoutX="29.0" layoutY="108.0" prefHeight="279.0" prefWidth="341.0" style="-fx-border-color: grey;" />
       <Label layoutX="71.0" layoutY="410.0" text="Weekely Demand:" />
       <Label layoutX="72.0" layoutY="439.0" text="Weekly Revenue:" />
       <Label layoutX="73.0" layoutY="467.0" text="Weekly Profit:" />
-      <Label layoutX="222.0" layoutY="410.0" text="500pcs" />
-      <Label layoutX="222.0" layoutY="440.0" text="500pcs" />
-      <Label layoutX="221.0" layoutY="470.0" text="500pcs" />
+      <Label fx:id="demand" layoutX="222.0" layoutY="410.0" text="500pcs" />
+      <Label fx:id="revenue" layoutX="222.0" layoutY="440.0" text="500pcs" />
+      <Label fx:id="profit" layoutX="221.0" layoutY="470.0" text="500pcs" />
       <Separator layoutX="423.0" layoutY="108.0" orientation="VERTICAL" prefHeight="445.0" prefWidth="17.0" />
-      <ImageView fitHeight="214.0" fitWidth="246.0" layoutX="443.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="214.0" fitWidth="246.0" layoutX="704.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="214.0" fitWidth="246.0" layoutX="714.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="214.0" fitWidth="246.0" layoutX="453.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="im1" fitHeight="214.0" fitWidth="246.0" layoutX="443.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="im2" fitHeight="214.0" fitWidth="246.0" layoutX="704.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="im4" fitHeight="214.0" fitWidth="246.0" layoutX="714.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="im3" fitHeight="214.0" fitWidth="246.0" layoutX="453.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>

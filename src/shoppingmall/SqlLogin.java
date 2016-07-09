@@ -29,7 +29,7 @@ import javafx.util.Callback;
 //singleton
 public class SqlLogin {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/test";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/ShoppingMall";
     
     static final String USER = "root";
     static final String PASS = "1234";
@@ -66,7 +66,7 @@ public class SqlLogin {
         Statement stmt=null;
         stmt=SqlLogin.conn.createStatement();
         ResultSet rs;
-        rs=stmt.executeQuery("select shopName from ShopTable");
+        rs=stmt.executeQuery("select shopName from shoptable");
         String shopName = null;
         while(rs.next()){
             shopName=rs.getString("shopName");
@@ -83,7 +83,7 @@ public class SqlLogin {
         Statement stmt=null;
         stmt=SqlLogin.conn.createStatement();
         ResultSet rs;
-        rs=stmt.executeQuery("select shopPassword from ShopTable");
+        rs=stmt.executeQuery("select shopPassword from shoptable");
         String shopPassword = null;
         while(rs.next()){
             shopPassword=rs.getString("shopPassword");

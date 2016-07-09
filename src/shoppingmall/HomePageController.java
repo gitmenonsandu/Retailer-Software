@@ -204,7 +204,7 @@ public class HomePageController implements Initializable {
         boolean ItemOfferAvailability;
         try {
             
-            SqlLogin.getTable("select * from ItemTable",null);
+            SqlLogin.getTable("select * from itemtable",null);
         } catch (SQLException ex) {
             Logger.getLogger(InventoryPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
