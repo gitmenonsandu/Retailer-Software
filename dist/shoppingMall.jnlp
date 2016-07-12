@@ -9,7 +9,7 @@
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
     <jar href="lib/mysql-connector-java-5.0.8-bin.jar" size="540852" download="eager" />
-    <jar href="shoppingMall.jar" size="263607" download="eager" />
+    <jar href="shoppingMall.jar" size="264047" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="shoppingMall" >
     <param name="requiredFXVersion" value="8.0+"/>

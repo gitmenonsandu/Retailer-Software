@@ -11,9 +11,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,7 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
-
+import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
@@ -80,6 +84,10 @@ public class InventoryHomePageController implements Initializable {
                     try{
                     System.out.println(item.getItemImage());    
                     im[cnt].setImage(new Image(ShoppingMall.class.getResourceAsStream("img/"+item.getItemImage())));
+                    im[cnt].setPreserveRatio(false);
+                    im[cnt].setFitHeight(200);
+                    im[cnt].setFitWidth(175);
+                    
                     cnt++;
                     
                     if(cnt>3)
@@ -109,5 +117,14 @@ public class InventoryHomePageController implements Initializable {
         
         
     }    
+
+    @FXML
+    private void goToDashboard(ActionEvent event) throws IOException {
+        Parent invPageParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        Scene invPageScene = new Scene(invPageParent);
+        Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(invPageScene);
+        appStage.show();
+    }
     
 }

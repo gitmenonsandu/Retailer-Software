@@ -87,7 +87,7 @@ public class HomePageController implements Initializable {
                 }
             case I:
                 {
-                    Parent invPageParent = FXMLLoader.load(getClass().getResource("InventoryPage.fxml"));
+                    Parent invPageParent = FXMLLoader.load(getClass().getResource("InventoryHomePage.fxml"));
                     Scene invPageScene = new Scene(invPageParent);
                     Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
                     appStage.setScene(invPageScene);

@@ -18,7 +18,7 @@
    <children>
       <HBox prefHeight="129.0" prefWidth="1159.0">
          <children>
-            <Button fx:id="dashboard" mnemonicParsing="false" prefHeight="129.0" prefWidth="233.0" text="Dashboard" />
+            <Button fx:id="dashboard" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="129.0" prefWidth="233.0" text="Dashboard" />
             <Button fx:id="invoice" mnemonicParsing="false" prefHeight="129.0" prefWidth="236.0" text="Invoice" />
             <Button fx:id="ads" mnemonicParsing="false" prefHeight="129.0" prefWidth="243.0" text="Ads" />
             <Button fx:id="offers" mnemonicParsing="false" prefHeight="129.0" prefWidth="233.0" text="Offers" />
