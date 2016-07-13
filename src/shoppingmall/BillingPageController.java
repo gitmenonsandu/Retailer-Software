@@ -181,7 +181,7 @@ public class BillingPageController implements Initializable {
             
             
             if(!name.equals("0")){      // condition to check if image is present or not
-                page= new ImageView(new Image(ShoppingMall.class.getResourceAsStream("img/"+name)));
+                page= new ImageView(new Image(ShoppingMall.class.getResourceAsStream("img/items/"+name)));
                 page.setFitHeight(190);
                 page.setFitWidth(190);
                 

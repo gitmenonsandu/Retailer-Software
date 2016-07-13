@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="823.0" prefWidth="1159.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shoppingmall.OffersHomePageController">
+    <stylesheets>
+        <URL value="@mallmain.css" />
+    </stylesheets>
+   <children>
+      <HBox prefHeight="129.0" prefWidth="1159.0">
+         <children>
+            <Button fx:id="dashboard" mnemonicParsing="false" onAction="#goToDashBoard" prefHeight="129.0" prefWidth="233.0" text="Dashboard" />
+            <Button mnemonicParsing="false" prefHeight="129.0" prefWidth="236.0" text="Invoice" />
+            <Button mnemonicParsing="false" prefHeight="129.0" prefWidth="243.0" text="Ads" />
+            <Button mnemonicParsing="false" prefHeight="129.0" prefWidth="233.0" text="Offers" />
+            <Button mnemonicParsing="false" prefHeight="129.0" prefWidth="240.0" text="Inventory" />
+         </children>
+      </HBox>
+      <ScrollPane layoutY="129.0" prefHeight="843.0" prefWidth="1159.0">
+         <content>
+            <AnchorPane prefHeight="1037.0" prefWidth="1141.0">
+               <children>
+                  <Pane layoutX="82.0" layoutY="11.0" prefHeight="54.0" prefWidth="972.0" style="-fx-border-color: grey;">
+                     <children>
+                        <Button fx:id="addNewOffer" layoutX="22.0" layoutY="9.0" mnemonicParsing="false" onAction="#goToAddNewOffer" prefHeight="34.0" prefWidth="929.0" text="Add New Offer" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="82.0" layoutY="88.0" prefHeight="378.0" prefWidth="973.0" style="-fx-border-color: grey;">
+                     <children>
+                        <Separator layoutX="326.0" layoutY="18.0" orientation="VERTICAL" prefHeight="339.0" prefWidth="8.0" />
+                        <Label layoutX="80.0" layoutY="17.0" text="Customer Info">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <ProgressBar layoutX="152.0" layoutY="71.0" prefHeight="20.0" prefWidth="149.0" progress="0.0" />
+                        <Label layoutX="61.0" layoutY="72.0" text="Men">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="127.0" text="Women">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ProgressBar layoutX="152.0" layoutY="126.0" prefHeight="20.0" prefWidth="149.0" progress="0.0" />
+                        <ProgressBar layoutX="152.0" layoutY="180.0" prefHeight="20.0" prefWidth="149.0" progress="0.0" />
+                        <Label layoutX="60.0" layoutY="181.0" text="Teen">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="236.0" text="Mid">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ProgressBar layoutX="152.0" layoutY="235.0" prefHeight="20.0" prefWidth="148.0" progress="0.0" />
+                        <ProgressBar layoutX="153.0" layoutY="281.0" prefHeight="20.0" prefWidth="149.0" progress="0.0" />
+                        <Label layoutX="61.0" layoutY="282.0" text="Old">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <LineChart layoutX="360.0" layoutY="36.0" prefHeight="313.0" prefWidth="580.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                        <Button layoutX="937.0" layoutY="189.0" mnemonicParsing="false" text="&gt;" />
+                        <Button layoutX="14.0" layoutY="188.0" mnemonicParsing="false" text="&lt;" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="83.0" layoutY="492.0" prefHeight="580.0" prefWidth="970.0" style="-fx-border-color: grey;">
+                     <children>
+                        <Label layoutX="20.0" layoutY="18.0" text="Offers">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="20.0" layoutY="58.0" prefHeight="11.0" prefWidth="924.0" />
+                        <Button layoutX="897.0" layoutY="22.0" mnemonicParsing="false" text="Add" />
+                        <Pane layoutX="31.0" layoutY="110.0" prefHeight="244.0" prefWidth="423.0" style="-fx-border-color: grey;">
+                           <children>
+                              <Label layoutX="22.0" layoutY="24.0" text="Offer:" />
+                              <Label layoutX="90.0" layoutY="24.0" text="Buy One Get One" />
+                              <Label layoutX="89.0" layoutY="110.0" text="Only Men" />
+                              <Label layoutX="21.0" layoutY="110.0" text="Valid For:" />
+                              <Label layoutX="23.0" layoutY="50.0" text="From:" />
+                              <Label layoutX="91.0" layoutY="50.0" text="17 June,2017" />
+                              <Label layoutX="91.0" layoutY="79.0" text="28 June,2017" />
+                              <Label layoutX="23.0" layoutY="79.0" text="Till:" />
+                              <Label layoutX="23.0" layoutY="140.0" text="Valid On:" />
+                              <Label layoutX="91.0" layoutY="140.0" text="Shirts and Pants" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="519.0" layoutY="110.0" prefHeight="248.0" prefWidth="430.0" style="-fx-border-color: grey;">
+                           <children>
+                              <Separator layoutX="184.0" layoutY="8.0" orientation="VERTICAL" prefHeight="223.0" prefWidth="9.0" />
+                              <Label layoutX="48.0" layoutY="14.0" text="Customer Info" />
+                              <ProgressBar layoutX="89.0" layoutY="63.0" prefHeight="20.0" prefWidth="78.0" progress="0.0" />
+                              <Label layoutX="27.0" layoutY="64.0" text="Men" />
+                              <Label layoutX="26.0" layoutY="98.0" text="Women" />
+                              <ProgressBar layoutX="89.0" layoutY="97.0" prefHeight="20.0" prefWidth="78.0" progress="0.0" />
+                              <ProgressBar layoutX="89.0" layoutY="131.0" prefHeight="20.0" prefWidth="78.0" progress="0.0" />
+                              <Label layoutX="26.0" layoutY="132.0" text="Teen" />
+                              <Label layoutX="26.0" layoutY="168.0" text="Mid" />
+                              <ProgressBar layoutX="89.0" layoutY="167.0" prefHeight="20.0" prefWidth="78.0" progress="0.0" />
+                              <ProgressBar layoutX="90.0" layoutY="199.0" prefHeight="20.0" prefWidth="78.0" progress="0.0" />
+                              <Label layoutX="27.0" layoutY="200.0" text="Old" />
+                              <LineChart layoutX="195.0" layoutY="29.0" prefHeight="193.0" prefWidth="211.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

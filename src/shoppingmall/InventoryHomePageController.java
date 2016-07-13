@@ -83,7 +83,7 @@ public class InventoryHomePageController implements Initializable {
                 if(item.getItemCategory().toLowerCase().contains(category.toLowerCase())){
                     try{
                     System.out.println(item.getItemImage());    
-                    im[cnt].setImage(new Image(ShoppingMall.class.getResourceAsStream("img/"+item.getItemImage())));
+                    im[cnt].setImage(new Image(ShoppingMall.class.getResourceAsStream("img/items/"+item.getItemImage())));
                     im[cnt].setPreserveRatio(false);
                     im[cnt].setFitHeight(200);
                     im[cnt].setFitWidth(175);

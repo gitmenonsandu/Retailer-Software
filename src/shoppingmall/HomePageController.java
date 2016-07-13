@@ -96,7 +96,7 @@ public class HomePageController implements Initializable {
                 }
             case O:
                 {
-                    Parent offerPageParent = FXMLLoader.load(getClass().getResource("OfferPage.fxml"));
+                    Parent offerPageParent = FXMLLoader.load(getClass().getResource("OffersHomePage.fxml"));
                     Scene offerPageScene = new Scene(offerPageParent);
                     Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
                     appStage.setScene(offerPageScene);
@@ -122,7 +122,7 @@ public class HomePageController implements Initializable {
             appStage.show();
         }
         else if(event.getSource()==offers){
-            Parent offerPageParent = FXMLLoader.load(getClass().getResource("OfferPage.fxml"));
+            Parent offerPageParent = FXMLLoader.load(getClass().getResource("OffersHomePage.fxml"));
             Scene offerPageScene = new Scene(offerPageParent);
             Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(offerPageScene);

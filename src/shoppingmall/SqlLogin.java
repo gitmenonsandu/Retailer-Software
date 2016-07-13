@@ -98,7 +98,7 @@ public class SqlLogin {
         SqlLogin.connectDatabase();      
         PreparedStatement stmt=null;
      
-        String query="insert into ItemTable(`itemName`,`itemPrice`,`itemQuantity`,`itemCategory`,`itemOffer`,"
+        String query="insert into itemtable(`itemName`,`itemPrice`,`itemQuantity`,`itemCategory`,`itemOffer`,"
                 + "`itemImage`,`itemDiscount`) values(?,?,?,?,?,?,?)";
         stmt=SqlLogin.conn.prepareStatement(query);
         stmt.setString(1,item.getItemName());
@@ -120,7 +120,7 @@ public class SqlLogin {
          SqlLogin.connectDatabase();      
         PreparedStatement stmt=null;
      
-        String query="insert into OfferTable(`offerDesc`,`offerUsers`,`offerCategory`,`offerImage`) values(?,?,?,?)";
+        String query="insert into offertable(`offerDesc`,`offerUsers`,`offerCategory`,`offerImage`) values(?,?,?,?)";
         stmt=SqlLogin.conn.prepareStatement(query);
         stmt.setString(1,offer.getOfferDesc());
         stmt.setInt(2, offer.getOfferUses());

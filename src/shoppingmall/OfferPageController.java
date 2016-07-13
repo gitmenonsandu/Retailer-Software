@@ -116,7 +116,7 @@ public class OfferPageController implements Initializable {
                 name="doofer";
             //System.out.println(name);
             if(true){
-                page= new ImageView(new Image(ShoppingMall.class.getResourceAsStream("img/"+name)));
+                page= new ImageView(new Image(ShoppingMall.class.getResourceAsStream("img/offers/"+name)));
                 page.setFitHeight(200);
                 page.setFitWidth(300);
                 page.setId((String) data.get(i).get(1));

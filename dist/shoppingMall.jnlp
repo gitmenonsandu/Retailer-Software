@@ -8,8 +8,56 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib/annotation-detector-3.0.4.jar" size="15204" download="eager" />
+    <jar href="lib/applicationinsights-core-1.0.2.jar" size="362628" download="eager" />
+    <jar href="lib/applicationinsights-web-1.0.2.jar" size="50986" download="eager" />
+    <jar href="lib/azure-core-0.9.0.jar" size="163223" download="eager" />
+    <jar href="lib/azure-media-0.9.0.jar" size="461214" download="eager" />
+    <jar href="lib/azure-servicebus-0.9.0.jar" size="122012" download="eager" />
+    <jar href="lib/azure-serviceruntime-0.9.0.jar" size="86484" download="eager" />
+    <jar href="lib/azure-storage-4.0.0.jar" size="697311" download="eager" />
+    <jar href="lib/azure-svc-mgmt-0.9.0.jar" size="98524" download="eager" />
+    <jar href="lib/azure-svc-mgmt-compute-0.9.0.jar" size="686065" download="eager" />
+    <jar href="lib/azure-svc-mgmt-media-0.9.0.jar" size="37792" download="eager" />
+    <jar href="lib/azure-svc-mgmt-network-0.9.0.jar" size="471579" download="eager" />
+    <jar href="lib/azure-svc-mgmt-scheduler-0.9.0.jar" size="247328" download="eager" />
+    <jar href="lib/azure-svc-mgmt-sql-0.9.0.jar" size="217221" download="eager" />
+    <jar href="lib/azure-svc-mgmt-storage-0.9.0.jar" size="58316" download="eager" />
+    <jar href="lib/azure-svc-mgmt-websites-0.9.0.jar" size="261237" download="eager" />
+    <jar href="lib/azure-tracing-util-0.9.0.jar" size="11323" download="eager" />
+    <jar href="lib/commons-codec-1.10.jar" size="284184" download="eager" />
+    <jar href="lib/commons-io-2.4.jar" size="185140" download="eager" />
+    <jar href="lib/commons-lang-2.6.jar" size="284220" download="eager" />
+    <jar href="lib/commons-lang3-3.4.jar" size="434678" download="eager" />
+    <jar href="lib/commons-logging-1.1.3.jar" size="62050" download="eager" />
+    <jar href="lib/gson-1.7.2.jar" size="173608" download="eager" />
+    <jar href="lib/guava-18.0.jar" size="2256213" download="eager" />
+    <jar href="lib/httpclient-4.3.6.jar" size="592008" download="eager" />
+    <jar href="lib/httpcore-4.3.3.jar" size="282793" download="eager" />
+    <jar href="lib/jackson-annotations-2.6.0.jar" size="46968" download="eager" />
+    <jar href="lib/jackson-core-2.6.0.jar" size="258837" download="eager" />
+    <jar href="lib/jackson-core-2.8.0.jar" size="280015" download="eager" />
+    <jar href="lib/jackson-core-asl-1.9.2.jar" size="228286" download="eager" />
+    <jar href="lib/jackson-databind-2.6.0.jar" size="1160720" download="eager" />
+    <jar href="lib/jackson-jaxrs-1.9.2.jar" size="18323" download="eager" />
+    <jar href="lib/jackson-mapper-asl-1.9.2.jar" size="765648" download="eager" />
+    <jar href="lib/jackson-xc-1.9.2.jar" size="27075" download="eager" />
+    <jar href="lib/javax.inject-1.jar" size="2497" download="eager" />
+    <jar href="lib/jaxb-impl-2.2.3-1-sources.jar" size="1123574" download="eager" />
+    <jar href="lib/jaxb-impl-2.2.3-1.jar" size="890168" download="eager" />
+    <jar href="lib/jersey-client-1.13-sources.jar" size="120508" download="eager" />
+    <jar href="lib/jersey-client-1.13.jar" size="131269" download="eager" />
+    <jar href="lib/jersey-core-1.13-sources.jar" size="437166" download="eager" />
+    <jar href="lib/jersey-core-1.13.jar" size="465649" download="eager" />
+    <jar href="lib/jersey-json-1.13-sources.jar" size="132296" download="eager" />
+    <jar href="lib/jersey-json-1.13.jar" size="163417" download="eager" />
+    <jar href="lib/jettison-1.1.jar" size="67758" download="eager" />
+    <jar href="lib/jjwt-0.5.1.jar" size="92715" download="eager" />
+    <jar href="lib/jsr305-1.3.9.jar" size="33015" download="eager" />
+    <jar href="lib/mail-1.4.5-sources.jar" size="710398" download="eager" />
+    <jar href="lib/mail-1.4.5.jar" size="508143" download="eager" />
     <jar href="lib/mysql-connector-java-5.0.8-bin.jar" size="540852" download="eager" />
-    <jar href="shoppingMall.jar" size="264047" download="eager" />
+    <jar href="shoppingMall.jar" size="270195" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="shoppingMall" >
     <param name="requiredFXVersion" value="8.0+"/>
