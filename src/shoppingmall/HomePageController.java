@@ -206,7 +206,7 @@ public class HomePageController implements Initializable {
             
             SqlLogin.getTable("select * from itemtable",null);
         } catch (SQLException ex) {
-            Logger.getLogger(InventoryPageController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
         }
         for(int i=0;i<SqlLogin.data.size();++i){
             

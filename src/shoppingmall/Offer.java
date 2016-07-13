@@ -13,16 +13,21 @@ import java.sql.Date;
  */
 public class Offer {
     private String offerID, offerDesc,offerCategory,image;
-    private Integer offerUses;
-    private Date offerExpiry;
+    private Integer offerUses,minimumPurchase,onBuying;
+    private Date offerExpiry,startDate;
 
-    public Offer(String offerID, String offerDesc, String offerCategory, Integer offerUses,String image) {
+    public Offer(String offerID, String offerDesc, String offerCategory, String image, Integer offerUses, Integer minimumPurchase, Integer onBuying, Date offerExpiry, Date startDate) {
         this.offerID = offerID;
         this.offerDesc = offerDesc;
         this.offerCategory = offerCategory;
+        this.image = image;
         this.offerUses = offerUses;
-        this.image=image;
+        this.minimumPurchase = minimumPurchase;
+        this.onBuying = onBuying;
+        this.offerExpiry = offerExpiry;
+        this.startDate = startDate;
     }
+
 
     Offer() {
         
@@ -77,5 +82,30 @@ public class Offer {
         this.offerExpiry = offerExpiry;
     }
     
+        public Integer getMinimumPurchase() {
+        return minimumPurchase;
+    }
+
+    public void setMinimumPurchase(Integer minimumPurchase) {
+        this.minimumPurchase = minimumPurchase;
+    }
+
+    public Integer getOnBuying() {
+        return onBuying;
+    }
+
+    public void setOnBuying(Integer onBuying) {
+        this.onBuying = onBuying;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+
     
 }

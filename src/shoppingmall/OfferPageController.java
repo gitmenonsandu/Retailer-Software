@@ -7,6 +7,7 @@ package shoppingmall;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -149,13 +150,15 @@ public class OfferPageController implements Initializable {
         shopName.setText(user.getShopName());
         String noOfOffers="Total Offers : ";
         String offerID,offerDesc,offerCategory,offerImage;
+        Date expiryDate,startDate;
+        Integer minimumPurchase,onBuying;
         tile.setVgap(10);
         tile.setHgap(10);
         Integer offerUsers;
         boolean ItemOfferAvailability;
         try {
             
-            SqlLogin.getTable("select * from OfferTable",null);
+            SqlLogin.getTable("select * from offertable",null);
         } catch (SQLException ex) {
             Logger.getLogger(InventoryPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -165,14 +168,21 @@ public class OfferPageController implements Initializable {
                        
             offerDesc=((String) SqlLogin.data.get(i).get(1));
                        
+            expiryDate=Date.valueOf(SqlLogin.data.get(i).get(2).toString());
             
             offerUsers=(Integer.parseInt((String) SqlLogin.data.get(i).get(3)));
                
             offerCategory=((String) SqlLogin.data.get(i).get(4));
             
             offerImage=((String) SqlLogin.data.get(i).get(5));
-                
-            Offer offer=new Offer(offerID, offerDesc, offerCategory, offerUsers,offerImage);
+            
+            minimumPurchase=Integer.parseInt(SqlLogin.data.get(i).get(6).toString());
+            
+            onBuying=Integer.parseInt(SqlLogin.data.get(i).get(7).toString());
+            
+            startDate=Date.valueOf(SqlLogin.data.get(i).get(8).toString());
+            
+            Offer offer=new Offer(offerID, offerDesc, offerCategory, offerImage, offerUsers, minimumPurchase, onBuying, expiryDate, startDate);
             OfferTable.addOffer(offer);
         }
         //System.out.println(inventory.viewAllItems());

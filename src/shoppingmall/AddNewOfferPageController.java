@@ -8,6 +8,8 @@ package shoppingmall;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.Observable;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -119,6 +121,9 @@ public class AddNewOfferPageController implements Initializable {
         offerDescMobileVIew.setText("");
         
         
+        addedFrom.setDisable(true);
+        addedTill.setDisable(true);
+        
         
         
         
@@ -134,21 +139,39 @@ public class AddNewOfferPageController implements Initializable {
         
         System.out.print(fc.getInitialDirectory().getPath());
         if(selectedFile!=null){
-            picLocation.setText(selectedFile.getPath());
+            picLocation.setText(selectedFile.getName());
             String dir=selectedFile.getName();
             offerImage.setImage(new Image(ShoppingMall.class.getResourceAsStream("img/offers/"+dir)));
             
             
         }
         
-        addedFrom.setDisable(true);
-        addedTill.setDisable(true);
-        
         
     }
 
     @FXML
-    private void handleAdd(ActionEvent event) {
+    private void handleAdd(ActionEvent event){
+        Offer offer=new Offer();
+        offer.setOfferDesc(offerDescription.getText());
+        offer.setOfferExpiry(Date.valueOf(offerTill.getValue()));
+        offer.setOfferUses(0);
+        offer.setOfferCategory(categories.getValue().toString());
+        offer.setImage((picLocation.getText().isEmpty())?"doofer":picLocation.getText());
+        offer.setMinimumPurchase(Integer.parseInt((minPurcahse.getText().isEmpty())?"-1":minPurcahse.getText()));
+        offer.setOnBuying(Integer.parseInt((buyingXProducts.getText().isEmpty())?"-1":buyingXProducts.getText()));
+        
+        try{
+            SqlLogin.insertOffer(offer);
+            Parent offerPageParent = FXMLLoader.load(getClass().getResource("OffersHomePage.fxml"));
+            Scene offerPageScene = new Scene(offerPageParent);
+            Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            appStage.setMaximized(true);
+            appStage.setScene(offerPageScene);
+            appStage.show();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     @FXML

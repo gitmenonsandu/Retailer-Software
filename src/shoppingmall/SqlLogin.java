@@ -120,12 +120,17 @@ public class SqlLogin {
          SqlLogin.connectDatabase();      
         PreparedStatement stmt=null;
      
-        String query="insert into offertable(`offerDesc`,`offerUsers`,`offerCategory`,`offerImage`) values(?,?,?,?)";
+        String query="insert into offertable(`offerDesc`,`offerExpiry`,`offerUsers`,`offerCategory`,`offerImage`,`minimPurchase`,`onBuying`,`startDate`) values(?,?,?,?,?,?,?,?)";
         stmt=SqlLogin.conn.prepareStatement(query);
+        
         stmt.setString(1,offer.getOfferDesc());
-        stmt.setInt(2, offer.getOfferUses());
-        stmt.setString(3, offer.getOfferCategory());
-        stmt.setString(4,offer.getImage());
+        stmt.setDate(2, offer.getOfferExpiry());
+        stmt.setInt(3, offer.getOfferUses());
+        stmt.setString(4,offer.getOfferCategory());
+        stmt.setString(5,offer.getImage());
+        stmt.setInt(6, offer.getMinimumPurchase());
+        stmt.setInt(7, offer.getOnBuying());
+        stmt.setDate(8, offer.getStartDate());
         
         System.out.println(stmt);
         stmt.executeUpdate();

@@ -57,7 +57,7 @@
     <jar href="lib/mail-1.4.5-sources.jar" size="710398" download="eager" />
     <jar href="lib/mail-1.4.5.jar" size="508143" download="eager" />
     <jar href="lib/mysql-connector-java-5.0.8-bin.jar" size="540852" download="eager" />
-    <jar href="shoppingMall.jar" size="471828" download="eager" />
+    <jar href="shoppingMall.jar" size="473800" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="shoppingMall" >
     <param name="requiredFXVersion" value="8.0+"/>
