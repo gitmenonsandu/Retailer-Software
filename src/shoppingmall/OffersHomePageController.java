@@ -29,6 +29,14 @@ public class OffersHomePageController implements Initializable {
     private Button dashboard;
     @FXML
     private Button addNewOffer;
+    @FXML
+    private Button invoice;
+    @FXML
+    private Button ads;
+    @FXML
+    private Button offers;
+    @FXML
+    private Button inventory;
 
     /**
      * Initializes the controller class.
@@ -39,25 +47,61 @@ public class OffersHomePageController implements Initializable {
     }    
 
     @FXML
-    private void goToDashBoard(ActionEvent event) throws IOException {
-        Parent invPageParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        Scene invPageScene = new Scene(invPageParent);
-        Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        appStage.setScene(invPageScene);
-        appStage.show();
-    }
-
-    @FXML
-    private void goToAddNewOffer(ActionEvent event) throws IOException {
-        Parent invPageParent = FXMLLoader.load(getClass().getResource("AddNewOfferPage.fxml"));
-        Scene invPageScene = new Scene(invPageParent);
-        Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        appStage.setScene(invPageScene);
-        appStage.show();
+    private void handleTopBar(ActionEvent event) throws IOException {
+        if(event.getSource().equals(dashboard)){
+                Parent offerPageParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+                Scene offerPageScene = new Scene(offerPageParent);
+                Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                appStage.setMaximized(true);
+                appStage.setScene(offerPageScene);
+                appStage.show();
+        }
+        else if(event.getSource().equals(invoice)){
+                Parent offerPageParent = FXMLLoader.load(getClass().getResource("BillingPage.fxml"));
+                Scene offerPageScene = new Scene(offerPageParent);
+                Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                appStage.setMaximized(true);
+                appStage.setScene(offerPageScene);
+                appStage.show();
+        }
+        else if(event.getSource().equals(inventory)){
+                Parent offerPageParent = FXMLLoader.load(getClass().getResource("InventoryHomePage.fxml"));
+                Scene offerPageScene = new Scene(offerPageParent);
+                Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                appStage.setMaximized(true);
+                appStage.setScene(offerPageScene);
+                appStage.show();
+        }
+        else if(event.getSource().equals(offers)){
+                Parent offerPageParent = FXMLLoader.load(getClass().getResource("OffersHomePage.fxml"));
+                Scene offerPageScene = new Scene(offerPageParent);
+                Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                appStage.setMaximized(true);
+                appStage.setScene(offerPageScene);
+                appStage.show();
+        }
+        else if(event.getSource().equals(ads)){
+                Parent offerPageParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+                Scene offerPageScene = new Scene(offerPageParent);
+                Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                appStage.setMaximized(true);
+                appStage.setScene(offerPageScene);
+                appStage.show();
+        }
     }
     
     void setAllOffers(){
         
+    }
+
+    @FXML
+    private void goToAddNewOffer(ActionEvent event) throws IOException {
+                Parent offerPageParent = FXMLLoader.load(getClass().getResource("AddNewOfferPage.fxml"));
+                Scene offerPageScene = new Scene(offerPageParent);
+                Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                appStage.setMaximized(true);
+                appStage.setScene(offerPageScene);
+                appStage.show();
     }
     
 }

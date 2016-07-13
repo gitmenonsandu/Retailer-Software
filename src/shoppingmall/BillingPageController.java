@@ -219,12 +219,6 @@ public class BillingPageController implements Initializable {
                              row.set(2,removeQ.toString() );
                              billData.add(row);
                              
-                             //cart.getChildren().remove(cartIndex.get(itemID));
-                             //cartItem=cartIndex.get(itemID);
-                             //cartItem.getChildren().remove(1);
-                             //quantity.setText("x"+removeQ);
-                             //cartItem.getChildren().add(quantity);
-                             //cartIndex.put(itemID,cartItem);
                              
                              cartTileDisplay(removeQ, itemID, itemTile);
                          }
@@ -313,7 +307,7 @@ public class BillingPageController implements Initializable {
         boolean ItemOfferAvailability;
         try {
             
-            SqlLogin.getTable("select * from ItemTable",null);
+            SqlLogin.getTable("select * from itemtable",null);
         } catch (SQLException ex) {
             Logger.getLogger(InventoryPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -442,7 +436,6 @@ public class BillingPageController implements Initializable {
                 }
         
     
-        
         tileDisplay(SqlLogin.data);
         
         
