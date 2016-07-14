@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,6 +32,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -105,6 +108,10 @@ public class AddNewOfferPageController implements Initializable {
     private Button offers;
     @FXML
     private Button inventory;
+    @FXML
+    private HBox productList;
+    @FXML
+    private Button addProduct;
 
     /**
      * Initializes the controller class.
@@ -117,12 +124,19 @@ public class AddNewOfferPageController implements Initializable {
         for(String cat : Inventory.categories.values())
             category.add(cat);
         categories.setItems(category);
+        category.clear();
+        
+        for(Item item: Inventory.itemList.values())
+            category.add(item.getItemName());
+        
         categoriesProduct.setItems(category);
         offerDescMobileVIew.setText("");
         
         
         addedFrom.setDisable(true);
         addedTill.setDisable(true);
+        
+        productList.setSpacing(10);
         
         
         
@@ -161,7 +175,8 @@ public class AddNewOfferPageController implements Initializable {
         offer.setOnBuying(Integer.parseInt((buyingXProducts.getText().isEmpty())?"-1":buyingXProducts.getText()));
         
         try{
-            SqlLogin.insertOffer(offer);
+            SqlLogin.insertOffer(offer,"local");
+            SqlLogin.insertOffer(offer, "global");
             Parent offerPageParent = FXMLLoader.load(getClass().getResource("OffersHomePage.fxml"));
             Scene offerPageScene = new Scene(offerPageParent);
             Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -210,6 +225,8 @@ public class AddNewOfferPageController implements Initializable {
         
         categories.setValue(null);
         categoriesProduct.setValue(null);
+        
+        productList.getChildren().clear();
         
     }
 
@@ -312,6 +329,44 @@ public class AddNewOfferPageController implements Initializable {
                 appStage.setScene(offerPageScene);
                 appStage.show();
         }
+    }
+
+    @FXML
+    private void handleAddProduct(ActionEvent event) {
+        Label newProduct=new Label(categoriesProduct.getValue().toString());
+        for(Node cat:productList.getChildren()){
+            Label temp=(Label)cat;
+            if(temp.getText().equals(newProduct.getText()))
+                return;
+        }
+            
+        
+        newProduct.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                productList.getChildren().remove(event.getSource());
+            }
+            
+        });
+        newProduct.addEventHandler(MouseEvent.MOUSE_ENTERED,new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                newProduct.setStyle("-fx-background-color:white;-fx-font-size:120%");
+            }
+            
+        });
+        newProduct.addEventHandler(MouseEvent.MOUSE_EXITED,new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                newProduct.setStyle(newProduct.getId());
+            }
+            
+        });
+        newProduct.setId(newProduct.getStyle());
+        productList.setMinWidth(productList.getMaxWidth()+newProduct.getText().length()+10);
+        productList.setMinWidth(productList.getMaxWidth()+newProduct.getText().length()+10);
+        
+        productList.getChildren().add(newProduct);
     }
     
 }

@@ -121,7 +121,7 @@ public class AddItemPageController implements Initializable {
            }
            Inventory.addItem(item);
             try {
-                SqlLogin.insertItem(item);
+                SqlLogin.insertItem(item,"local");
             } catch (SQLException ex) {
                 Logger.getLogger(AddItemPageController.class.getName()).log(Level.SEVERE, null, ex);
                 return ;

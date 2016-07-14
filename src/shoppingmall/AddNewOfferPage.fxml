@@ -54,9 +54,9 @@
                         <DatePicker fx:id="offerTill" layoutX="705.0" layoutY="691.0" />
                         <Label layoutX="653.0" layoutY="696.0" text="Till" />
                         <Label layoutX="226.0" layoutY="743.0" text="Products" />
-                        <HBox layoutX="303.0" layoutY="737.0" prefHeight="31.0" prefWidth="235.0" style="-fx-border-color: grey;" />
+                        <HBox fx:id="productList" layoutX="303.0" layoutY="737.0" prefHeight="31.0" prefWidth="709.0" style="-fx-border-color: grey;" />
                         <ComboBox fx:id="categoriesProduct" layoutX="303.0" layoutY="787.0" prefHeight="25.0" prefWidth="196.0" />
-                        <Button layoutX="508.0" layoutY="785.0" mnemonicParsing="false" text="+" />
+                        <Button fx:id="addProduct" layoutX="508.0" layoutY="785.0" mnemonicParsing="false" onAction="#handleAddProduct" text="+" />
                         <Pane layoutX="301.0" layoutY="834.0" prefHeight="202.0" prefWidth="531.0" style="-fx-border-color: grey;">
                            <children>
                               <CheckBox fx:id="isAll" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleCheckBox" text="All" />

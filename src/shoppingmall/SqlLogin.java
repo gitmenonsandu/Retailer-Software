@@ -34,6 +34,9 @@ public class SqlLogin {
     static final String USER = "root";
     static final String PASS = "1234";
     
+    static final String BLUEMIX_URL="jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/ad_d50e86b971b02f2";
+    static final String BLUEMIX_USER="bf87fb0cec2402";
+    static final String BLUEMIX_PASS="60fcb38d";
     static Connection conn=null;
     
     static SqlLogin sqlData= new SqlLogin();
@@ -45,11 +48,11 @@ public class SqlLogin {
     }
     
     public static SqlLogin getUser() throws SQLException{
-        SqlLogin.connectDatabase();
+        SqlLogin.connectLocalDatabase();
         return sqlData;
     }
     
-    static void connectDatabase() throws SQLException{
+    static void connectLocalDatabase() throws SQLException{
         
         try {
                 Class.forName(JDBC_DRIVER);
@@ -60,9 +63,20 @@ public class SqlLogin {
             System.out.println("Connecting to database");
             conn=DriverManager.getConnection(DB_URL,USER,PASS);
     }
+    static void connectGlobalDatabase() throws SQLException{
+        
+        try {
+                Class.forName(JDBC_DRIVER);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(SqlLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            System.out.println("Connecting to database");
+            conn=DriverManager.getConnection(BLUEMIX_URL,BLUEMIX_USER,BLUEMIX_PASS);
+    }
     static String getShopName() throws SQLException{
         
-        SqlLogin.connectDatabase();      
+        SqlLogin.connectLocalDatabase();      
         Statement stmt=null;
         stmt=SqlLogin.conn.createStatement();
         ResultSet rs;
@@ -79,7 +93,7 @@ public class SqlLogin {
     
     static String getShopPassword() throws SQLException{
         
-        SqlLogin.connectDatabase();      
+        SqlLogin.connectLocalDatabase();      
         Statement stmt=null;
         stmt=SqlLogin.conn.createStatement();
         ResultSet rs;
@@ -94,8 +108,13 @@ public class SqlLogin {
         return shopPassword;
     }
     
-    static void insertItem(Item item) throws SQLException{
-        SqlLogin.connectDatabase();      
+    static void insertItem(Item item,String database) throws SQLException{
+        if(database.equals("global"))
+            SqlLogin.connectGlobalDatabase();
+        else if(database.equals("local"))
+            SqlLogin.connectLocalDatabase();
+        else
+            return ;
         PreparedStatement stmt=null;
      
         String query="insert into itemtable(`itemName`,`itemPrice`,`itemQuantity`,`itemCategory`,`itemOffer`,"
@@ -116,8 +135,13 @@ public class SqlLogin {
         SqlLogin.conn.close();
       
     }
-     static void insertOffer(Offer offer) throws SQLException {
-         SqlLogin.connectDatabase();      
+     static void insertOffer(Offer offer,String database) throws SQLException {
+        if(database.equals("global"))
+            SqlLogin.connectGlobalDatabase();
+        else if(database.equals("local"))
+            SqlLogin.connectLocalDatabase();
+        else
+            return ;      
         PreparedStatement stmt=null;
      
         String query="insert into offertable(`offerDesc`,`offerExpiry`,`offerUsers`,`offerCategory`,`offerImage`,`minimPurchase`,`onBuying`,`startDate`) values(?,?,?,?,?,?,?,?)";
@@ -145,7 +169,7 @@ public class SqlLogin {
         
             try{
                
-                SqlLogin.connectDatabase();      
+                SqlLogin.connectLocalDatabase();      
                 stmt=SqlLogin.conn.createStatement();
                 ResultSet rs;
                 rs = stmt.executeQuery(query);

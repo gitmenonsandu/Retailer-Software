@@ -129,7 +129,7 @@ public class AddOfferPageController implements Initializable {
            }
            OfferTable.addOffer(offer);
             try {
-                SqlLogin.insertOffer(offer);
+                SqlLogin.insertOffer(offer,"local");
             } catch (SQLException ex) {
                 Logger.getLogger(AddItemPageController.class.getName()).log(Level.SEVERE, null, ex);
                 return ;
