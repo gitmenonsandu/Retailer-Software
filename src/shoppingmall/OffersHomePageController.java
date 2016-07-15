@@ -48,46 +48,7 @@ public class OffersHomePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        String offerID,offerDesc,offerCategory,offerImage;
-        Date expiryDate,startDate;
-        Integer minimumPurchase,onBuying,offerUsers;
-            
-        try {
-            
-            SqlLogin.getTable("select * from offertable",null);
-        } catch (Exception ex) {
-            //Logger.getLogger(OffersHomePageController.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex);
-        }
-        for(int i=0;i<SqlLogin.data.size();++i){
-            System.out.println(i);
-            
-            offerID=((String) SqlLogin.data.get(i).get(0));
-                       
-            offerDesc=((String) SqlLogin.data.get(i).get(1));
-            try{     
-                expiryDate=Date.valueOf(SqlLogin.data.get(i).get(2).toString());
-
-                startDate=Date.valueOf(SqlLogin.data.get(i).get(8).toString());
-
-            }
-            catch(Exception e){
-                expiryDate=startDate=null;
-                System.out.println(e);
-            }
-            offerUsers=(Integer.parseInt((String) SqlLogin.data.get(i).get(3)));
-               
-            offerCategory=((String) SqlLogin.data.get(i).get(4));
-            
-            offerImage=((String) SqlLogin.data.get(i).get(5));
-            
-            minimumPurchase=Integer.parseInt(SqlLogin.data.get(i).get(6).toString());
-            
-            onBuying=Integer.parseInt(SqlLogin.data.get(i).get(7).toString());
-            
-            Offer offer=new Offer(offerID, offerDesc, offerCategory, offerImage, offerUsers, minimumPurchase, onBuying, expiryDate, startDate);
-            OfferTable.addOffer(offer);
-        }
+        updateModel.updateOfferModel();
     }    
 
     @FXML

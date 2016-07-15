@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import static shoppingmall.Inventory.itemList;
 
 /**
  *
@@ -35,6 +36,16 @@ public class OfferTable {
         offerList.put(offer.getOfferID(), offer);
     }
     
+    public static Offer getOffer(String id){
+        Offer offer=null;
+        try{
+            offer=offerList.get(id);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return offer;
+    }
     public Offer removeOffer(String offerID){
         Offer removedOffer=offerList.remove(offerID);
         

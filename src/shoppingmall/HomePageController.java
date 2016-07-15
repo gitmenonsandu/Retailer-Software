@@ -7,6 +7,7 @@ package shoppingmall;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -164,7 +165,7 @@ public class HomePageController implements Initializable {
         try{
             if(tab2.isSelected()){
 
-                SqlLogin.getTable("select offerID,offerUsers from OfferTable", null);
+                SqlLogin.getTable("select offerID,offerUsers from OfferTable");
                 offerIDvsUses.getXAxis().setAutoRanging(true);
                 offerIDvsUses.getYAxis().setAutoRanging(true);
                 offerIDvsUses.getXAxis().setAnimated(true);
@@ -195,40 +196,12 @@ public class HomePageController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         Login user=Login.getUser();
         shopName.setText(user.getShopName());
         
-        String ItemID,ItemName,ItemCategory,ItemImage;
-        Float ItemPrice,ItemDiscount;
-        Integer ItemQuantity;
-        boolean ItemOfferAvailability;
-        try {
-            
-            SqlLogin.getTable("select * from itemtable",null);
-        } catch (SQLException ex) {
-            Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for(int i=0;i<SqlLogin.data.size();++i){
-            
-            ItemID=((String) SqlLogin.data.get(i).get(0));
-                       
-            ItemName=((String) SqlLogin.data.get(i).get(1));
-                       
-            ItemPrice=(Float.valueOf((String) SqlLogin.data.get(i).get(2)));
-            
-            ItemQuantity=(Integer.parseInt((String) SqlLogin.data.get(i).get(3)));
-               
-            ItemCategory=((String) SqlLogin.data.get(i).get(4));
-            
-            ItemOfferAvailability=((Integer.valueOf((String) SqlLogin.data.get(i).get(5))==1));
-            
-            ItemImage=((String) SqlLogin.data.get(i).get(6));
-            
-            ItemDiscount=(Float.valueOf((String) SqlLogin.data.get(i).get(7)));
-                
-            Item item=new Item(ItemID, ItemName, ItemCategory, ItemImage, ItemPrice, ItemDiscount, ItemQuantity, ItemOfferAvailability);
-            Inventory.addItem(item);
-        }
+        updateModel.updateInventoryModel();
+        updateModel.updateOfferModel();
     }    
     
     

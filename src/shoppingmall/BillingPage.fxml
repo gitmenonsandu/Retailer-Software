@@ -60,6 +60,7 @@
             </Label>
             <Label text="Tax" GridPane.rowIndex="4" />
             <Label text="13 %" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Button fx:id="showOffers" mnemonicParsing="false" onAction="#handleShowOffers" text="Show Available Offers" GridPane.rowIndex="5" GridPane.valignment="TOP" />
          </children>
       </GridPane>
       <Label fx:id="total" text="Total : " GridPane.columnIndex="2" GridPane.rowIndex="3">

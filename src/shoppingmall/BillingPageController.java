@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Observable;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -91,6 +92,8 @@ public class BillingPageController implements Initializable {
     
     @FXML
     private TableView table;    //displays selected items in a table
+    @FXML
+    private Button showOffers;
     
     @FXML
     private void goBack(ActionEvent event) throws IOException{
@@ -301,37 +304,10 @@ public class BillingPageController implements Initializable {
         tile.setVgap(10);
         shopName.setText(user.getShopName());
         String noOfProducts="Total Products : ";
-        String ItemID,ItemName,ItemCategory,ItemImage;
-        Float ItemPrice,ItemDiscount;
-        Integer ItemQuantity;
-        boolean ItemOfferAvailability;
-        try {
-            
-            SqlLogin.getTable("select * from itemtable",null);
-        } catch (SQLException ex) {
-            Logger.getLogger(InventoryPageController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for(int i=0;i<SqlLogin.data.size();++i){
-            
-            ItemID=((String) SqlLogin.data.get(i).get(0));
-            
-            ItemName=((String) SqlLogin.data.get(i).get(1));
-                       
-            ItemPrice=(Float.valueOf((String) SqlLogin.data.get(i).get(2)));
-            
-            ItemQuantity=(Integer.parseInt((String) SqlLogin.data.get(i).get(3)));
-               
-            ItemCategory=((String) SqlLogin.data.get(i).get(4));
-            
-            ItemOfferAvailability=((Integer.valueOf((String) SqlLogin.data.get(i).get(5))==1));
-            
-            ItemImage=((String) SqlLogin.data.get(i).get(6));
-            
-            ItemDiscount=(Float.valueOf((String) SqlLogin.data.get(i).get(7)));
-                
-            Item item=new Item(ItemID, ItemName, ItemCategory, ItemImage, ItemPrice, ItemDiscount, ItemQuantity, ItemOfferAvailability);
-            Inventory.addItem(item);
-        }
+        
+        updateModel.updateOfferModel();
+        updateModel.updateInventoryModel();
+        
         String colName = null;
         
         for(int i=0;i<6;++i){
@@ -440,5 +416,29 @@ public class BillingPageController implements Initializable {
         
         
     }    
+
+    @FXML
+    private void handleShowOffers(ActionEvent event) {
+        
+        //stores all available offers
+        ArrayList<Offer> availableOfferList=new ArrayList<>();
+        for(ObservableList row:billData){
+            String itemID=row.get(0).toString();
+            String offerID=null;
+            String sqlQuery="select offerID from itemoffertable where itemID="+itemID;
+            try {
+                SqlLogin.getTable(sqlQuery);
+            } catch (SQLException ex) {
+                Logger.getLogger(BillingPageController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            for(int i=0;i<SqlLogin.data.size();++i){
+                
+                offerID=SqlLogin.data.get(i).get(0).toString();
+                availableOfferList.add(OfferTable.getOffer(offerID));
+            }
+            
+            
+        }
+    }
     
 }

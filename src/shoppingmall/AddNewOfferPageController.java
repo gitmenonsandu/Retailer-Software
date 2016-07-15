@@ -121,15 +121,17 @@ public class AddNewOfferPageController implements Initializable {
         // TODO
         
         ObservableList<String> category=FXCollections.observableArrayList();
+        ObservableList<String> itemNameAndId=FXCollections.observableArrayList();
         for(String cat : Inventory.categories.values())
             category.add(cat);
+        
         categories.setItems(category);
-        category.clear();
         
         for(Item item: Inventory.itemList.values())
-            category.add(item.getItemName());
+            itemNameAndId.add(item.getItemName()+":"+item.getItemID());
         
-        categoriesProduct.setItems(category);
+        categoriesProduct.setItems(itemNameAndId);
+        
         offerDescMobileVIew.setText("");
         
         
@@ -165,18 +167,46 @@ public class AddNewOfferPageController implements Initializable {
 
     @FXML
     private void handleAdd(ActionEvent event){
+        try{
         Offer offer=new Offer();
         offer.setOfferDesc(offerDescription.getText());
-        offer.setOfferExpiry(Date.valueOf(offerTill.getValue()));
+        offer.setOfferExpiry((!offerTill.getEditor().getText().isEmpty())?Date.valueOf(offerTill.getValue()):null);
         offer.setOfferUses(0);
-        offer.setOfferCategory(categories.getValue().toString());
+        offer.setOfferCategory((isofferDiscount.isSelected())?categories.getEditor().getText():null);
         offer.setImage((picLocation.getText().isEmpty())?"doofer":picLocation.getText());
         offer.setMinimumPurchase(Integer.parseInt((minPurcahse.getText().isEmpty())?"-1":minPurcahse.getText()));
         offer.setOnBuying(Integer.parseInt((buyingXProducts.getText().isEmpty())?"-1":buyingXProducts.getText()));
         
-        try{
             SqlLogin.insertOffer(offer,"local");
+            
+            Integer offerID=SqlLogin.getLastOfferID("local");
+            for(Node cat:productList.getChildren()){
+                Label temp=(Label)cat;
+                String nameID=temp.getText();
+                String itemID="";
+                boolean flag=false;
+                for(int i=0;i<nameID.length();++i){
+                    if(flag){
+                        itemID=itemID.concat(String.valueOf(nameID.charAt(i)));
+                    }
+                    if(nameID.charAt(i)==':')
+                        flag=true;
+                }
+                Integer itemsOlderThan=(isOlderThan.isSelected() && !olderThan.getText().isEmpty())?Integer.parseInt(olderThan.getText()):-1;
+                Integer itemsAddedInLast=(isAddedLast.isSelected() && !addedLast.getText().isEmpty())?Integer.parseInt(addedLast.getText()):-1;
+                Date itemsAddedFrom=(isAddedBetween.isSelected())?Date.valueOf(addedFrom.getValue()):null;
+                Date itemsAddedTill=(isAddedBetween.isSelected())?Date.valueOf(addedTill.getValue()):null;
+            SqlLogin.insertItemOffer("local", Integer.parseInt(itemID), offerID,isAll.isSelected(), itemsOlderThan, itemsAddedInLast, itemsAddedFrom, itemsAddedTill);
+                
             SqlLogin.insertOffer(offer, "global");
+            
+                
+                        
+            SqlLogin.insertItemOffer("global", Integer.parseInt(itemID), offerID,isAll.isSelected(), itemsOlderThan, itemsAddedInLast, itemsAddedFrom, itemsAddedTill);
+                
+                
+            }
+        
             Parent offerPageParent = FXMLLoader.load(getClass().getResource("OffersHomePage.fxml"));
             Scene offerPageScene = new Scene(offerPageParent);
             Stage appStage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -185,7 +215,7 @@ public class AddNewOfferPageController implements Initializable {
             appStage.show();
         }
         catch(Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
